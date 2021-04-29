@@ -28,6 +28,14 @@ const routes = [
         }
     },
     {
+        method: 'GET',
+        path: '/hello/{name?}',
+        handler: (request, h) => {
+            const {name='Stranger'} = request.params;
+            return `Halo, ${name}`;
+        }
+    },
+    {
         method: '*',
         path: '/{any*}',
         handler: (request, h) => {
